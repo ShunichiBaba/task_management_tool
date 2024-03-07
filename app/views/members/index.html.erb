@@ -1,0 +1,21 @@
+<%= link_to 'タスク一覧ページへ', tasks_path %>
+<hr/>
+<div>
+    <p>従業員一覧</p>
+    <% @members.each do |member| %>
+        <%= link_to member.name, edit_member_path(member) %>
+    <% end %>
+</div>
+<hr/>
+<div>
+    <p>所属一覧</p>
+    <% @teams.each do |team| %>
+        <%= team.name %>
+    <% end %>
+</div>
+<hr/>
+<%= form_with model: @member, url: members_path, local: true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th>タスク名</th>
+      <th>タスク部門</th>
+      <th>対応者</th>
+      <th>ステータス</th>
+      <th>着手予定日</th>
+      <th>完了予定日</th>
+      <th>備考</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= link_to '新しいタスクを追加する', new_task_path %>
+    <br>
+    <%= link_to 'メンバー登録ページへ', members_path %>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.name, task_path(task) %></td>
+        <td><%= task.team.name %></td>
+        <td><%= task.member.name %></td>
+        <td><%= task.status %></td>
+        <td><%= task.start_date.strftime("%Y/%m/%d") %></td>
+        <td><%= task.complete_date.strftime("%Y/%m/%d") %></td>
+        <td><%= task.memo %></td>
+        <td><%= link_to '編集', edit_task_path(task) %></td>
+        <td><%= link_to '削除', task_path(task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<%= link_to '一覧画面へ戻る', tasks_path %>
+
+<%= form_with model: @task, url: task_path(@task), local: true do |f| %>
+  <%= f.label :name, 'タスク名' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :member_id, '対応者' %>
+  <%= f.collection_select :member_id, Member.all, :id, :name, include_blank: true %>
+  <br>
+  <%= f.label :status, 'ステータス' %>
+  <%= f.text_field :status %>
+  <br>
+  <%= f.label :start_date, '着手予定日' %>
+  <%= f.date_field :start_date %>
+  <br>
+  <%= f.label :complete_date, '完了予定日' %>
+  <%= f.date_field :complete_date %>
+  <br>
+  <%= f.label :memo, '備考' %>
+  <%= f.text_area :memo %>
+  <br>
+  <%= f.submit %>
+<% end %>

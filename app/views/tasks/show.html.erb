@@ -1,0 +1,25 @@
+<%= link_to '一覧画面へ戻る', tasks_path %>
+<%= link_to '編集ページへ', edit_task_path(@task) %>
+
+<dl>
+  <dt>タスク名</dt>
+  <dd><%= @task.name %></dd>
+</dl>
+  <dt>タスク部門</dt>
+  <dd><%= @task.team.name %></dd>
+  </dl>
+  <dt>対応者</dt>
+  <dd><%= @task.member.name %></dd>
+  </dl>
+  <dt>ステータス</dt>
+  <dd><%= @task.status %></dd>
+  </dl>
+  <dt>着手予定日</dt>
+  <dd><%= @task.start_date.strftime("%Y/%m/%d") %></dd>
+  </dl>
+  <dt>完了予定日</dt>
+  <dd><%= @task.complete_date.strftime("%Y/%m/%d") %></dd>
+  </dl>
+  <dt>備考</dt>
+  <dd><%= @task.memo %></dd>
+</dl>

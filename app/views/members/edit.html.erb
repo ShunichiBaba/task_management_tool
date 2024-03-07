@@ -1,0 +1,7 @@
+<%= link_to '一覧画面へ', members_path %>
+
+<%= form_with model: @member, url: member_path(@member), local: true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.collection_select :team_id, Team.all, :id, :name %>
+    <%= f.submit %>
+<% end %>
