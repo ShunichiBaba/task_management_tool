@@ -3,6 +3,7 @@ class MembersController < ApplicationController
         @members = Member.all
         @member = Member.new
         @teams = Team.all
+        @team = Team.new
     end
     
     def create

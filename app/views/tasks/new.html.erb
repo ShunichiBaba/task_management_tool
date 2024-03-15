@@ -4,11 +4,14 @@
   <%= f.label :name, 'タスク名' %>
   <%= f.text_field :name %>
   <br>
+  <%= f.label :team_id, 'タスク部門' %>
+  <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
+  <br>
   <%= f.label :member_id, '対応者' %>
   <%= f.collection_select :member_id, Member.all, :id, :name, include_blank: true %>
   <br>
   <%= f.label :status, 'ステータス' %>
-  <%= f.text_field :status %>
+  <%= f.collection_select :status_id, Status.all, :id, :name, include_blank: true %>
   <br>
   <%= f.label :start_date, '着手予定日' %>
   <%= f.date_field :start_date %>

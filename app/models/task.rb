@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
     belongs_to :member
-    has_one :team, through: :member
+    belongs_to :team
+    belongs_to :status
 end
